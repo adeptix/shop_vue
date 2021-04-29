@@ -1,0 +1,172 @@
+{
+  "products": [
+    {
+      "id": 0,
+      "name": "Футболка мужская",
+      "brand": "lamborghini",
+      "price": 100000,
+      "category_id": 0,
+      "image_url": "",
+      "gender": "мужской",
+      "color": "красный",
+      "material": "хлопок",
+      "model": "футболка",
+      "season": "лето",
+      "code": "1110151050",
+      "country": "Индонезия"
+    },
+    {
+      "id": 1,
+      "name": "Футболка мужская",
+      "brand": "lamborghini",
+      "price": 100000,
+      "category_id": 0,
+      "image_url": "",
+      "gender": "мужской",
+      "color": "красный",
+      "material": "хлопок",
+      "model": "футболка",
+      "season": "лето",
+      "code": "1110151050",
+      "country": "Индонезия"
+    },
+    {
+      "id": 2,
+      "name": "Футболка мужская",
+      "brand": "lamborghini",
+      "price": 100000,
+      "category_id": 0,
+      "image_url": "",
+      "gender": "мужской",
+      "color": "красный",
+      "material": "хлопок",
+      "model": "футболка",
+      "season": "лето",
+      "code": "1110151050",
+      "country": "Индонезия"
+    },
+    {
+      "id": 3,
+      "name": "Футболка мужская",
+      "brand": "lamborghini",
+      "price": 100000,
+      "category_id": 0,
+      "image_url": "",
+      "gender": "мужской",
+      "color": "красный",
+      "material": "хлопок",
+      "model": "футболка",
+      "season": "лето",
+      "code": "1110151050",
+      "country": "Индонезия"
+    },
+    {
+      "id": 4,
+      "name": "Футболка мужская",
+      "brand": "lamborghini",
+      "price": 100000,
+      "category_id": 0,
+      "image_url": "",
+      "gender": "мужской",
+      "color": "красный",
+      "material": "хлопок",
+      "model": "футболка",
+      "season": "лето",
+      "code": "1110151050",
+      "country": "Индонезия"
+    },
+    {
+      "id": 5,
+      "name": "Футболка мужская",
+      "brand": "lamborghini",
+      "price": 100000,
+      "category_id": 0,
+      "image_url": "",
+      "gender": "мужской",
+      "color": "красный",
+      "material": "хлопок",
+      "model": "футболка",
+      "season": "лето",
+      "code": "1110151050",
+      "country": "Индонезия"
+    },
+    {
+      "id": 6,
+      "name": "Футболка мужская",
+      "brand": "lamborghini",
+      "price": 100000,
+      "category_id": 0,
+      "image_url": "",
+      "gender": "мужской",
+      "color": "красный",
+      "material": "хлопок",
+      "model": "футболка",
+      "season": "лето",
+      "code": "1110151050",
+      "country": "Индонезия"
+    },
+    {
+      "id": 7,
+      "name": "Футболка мужская",
+      "brand": "lamborghini",
+      "price": 100000,
+      "category_id": 0,
+      "image_url": "",
+      "gender": "мужской",
+      "color": "красный",
+      "material": "хлопок",
+      "model": "футболка",
+      "season": "лето",
+      "code": "1110151050",
+      "country": "Индонезия"
+    },
+    {
+      "id": 8,
+      "name": "Футболка мужская",
+      "brand": "lamborghini",
+      "price": 100000,
+      "category_id": 0,
+      "image_url": "",
+      "gender": "мужской",
+      "color": "красный",
+      "material": "хлопок",
+      "model": "футболка",
+      "season": "лето",
+      "code": "1110151050",
+      "country": "Индонезия"
+    },
+    {
+      "id": 9,
+      "name": "Футболка мужская",
+      "brand": "lamborghini",
+      "price": 100000,
+      "category_id": 0,
+      "image_url": "",
+      "gender": "мужской",
+      "color": "красный",
+      "material": "хлопок",
+      "model": "футболка",
+      "season": "лето",
+      "code": "1110151050",
+      "country": "Индонезия"
+    }
+  ],
+  "discounts": [
+    {
+      "id": 0,
+      "product_id": 2,
+      "percent": 50
+    }
+  ],
+  "categories": [
+    {
+      "id": 0,
+      "name": "Джинсы"
+    },
+    {
+      "id": 1,
+      "name": "Футболки"
+    }
+  ],
+  "basket": []
+}
