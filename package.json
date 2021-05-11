@@ -46,7 +46,9 @@
       "quotes": "off",
       "space-before-function-paren": "off",
       "object-curly-spacing": "off",
-      "eqeqeq": "off"
+      "eqeqeq": "off",
+      "comma-dangle": "off",
+      "no-trailing-spaces": "off"
     }
   },
   "browserslist": [

@@ -1,8 +1,10 @@
 <template>
-  <div class="container">
-    <h3>Товары</h3>
-    <div class="grid">
-      <product-card v-for="p in products" :key=p.id :product="p"/>
+  <div class="catalog">
+    <div class="container">
+      <h3>{{ currentCategory }}</h3>
+      <div class="grid">
+        <product-card v-for="p in products" :key=p.id :product="p"/>
+      </div>
     </div>
   </div>
 </template>
@@ -14,115 +16,47 @@ import { mapActions, mapGetters } from "vuex"
 export default {
   name: "CatalogPage",
   components: {ProductCard},
-  data() {
-    return {
-      products2: [
-        {
-          id: 0,
-          name: "Футболка мужская",
-          brand: "lamborghini",
-          price: 100000,
-          category_id: 0,
-          image_url: "jeans1.png",
-          gender: "мужской",
-          color: "красный",
-          material: "хлопок",
-          model: "футболка",
-          season: "лето",
-          code: "1110151050",
-          country: "Индонезия"
-        }, {
-          id: 1,
-          name: "Футболка мужская",
-          brand: "lamborghini",
-          price: 100000,
-          category_id: 0,
-          image_url: "jeans1.png",
-          gender: "мужской",
-          color: "красный",
-          material: "хлопок",
-          model: "футболка",
-          season: "лето",
-          code: "1110151050",
-          country: "Индонезия"
-        }, {
-          id: 2,
-          name: "Футболка мужская",
-          brand: "lamborghini",
-          price: 100000,
-          category_id: 0,
-          image_url: "jeans1.png",
-          gender: "мужской",
-          color: "красный",
-          material: "хлопок",
-          model: "футболка",
-          season: "лето",
-          code: "1110151050",
-          country: "Индонезия"
-        },
-        {
-          id: 3,
-          name: "Футболка мужская",
-          brand: "lamborghini",
-          price: 100000,
-          category_id: 0,
-          image_url: "jeans1.png",
-          gender: "мужской",
-          color: "красный",
-          material: "хлопок",
-          model: "футболка",
-          season: "лето",
-          code: "1110151050",
-          country: "Индонезия"
-        }, {
-          id: 4,
-          name: "Футболка мужская",
-          brand: "lamborghini",
-          price: 100000,
-          category_id: 0,
-          image_url: "jeans1.png",
-          gender: "мужской",
-          color: "красный",
-          material: "хлопок",
-          model: "футболка",
-          season: "лето",
-          code: "1110151050",
-          country: "Индонезия"
-        }, {
-          id: 5,
-          name: "Футболка мужская",
-          brand: "lamborghini",
-          price: 100000,
-          category_id: 0,
-          image_url: "jeans1.png",
-          gender: "мужской",
-          color: "красный",
-          material: "хлопок",
-          model: "футболка",
-          season: "лето",
-          code: "1110151050",
-          country: "Индонезия"
-        }
-      ]
-    }
-  },
 
   computed: {
     ...mapGetters({
-      products: "products/getProducts"
-    })
+      productsByCategoryID: "products/getProductsByCategoryID",
+      getCategoryID: "categories/getIDByName",
+      getCategory: "categories/getCategoryByID"
+    }),
+
+    products: function () {
+      const categoryID = this.parseCategory(this.$route.params.type)
+      return this.productsByCategoryID(categoryID)
+    },
+
+    currentCategory: function () {
+      const categoryID = this.parseCategory(this.$route.params.type)
+      if (categoryID === undefined) {
+        return "Все товары"
+      }
+
+      const category = this.getCategory(categoryID)
+      if (!category) {
+        return "Все товары"
+      }
+
+      return category.label
+    }
   },
 
   methods: {
     ...mapActions({
-      loadPosts: "products/getProducts"
-    })
-  },
+      loadPosts: "products/loadProducts"
+    }),
 
-  mounted() {
-    // const page = parseInt(this.$route.query.page, 10) || 1;
-    this.loadPosts(1)
-  }
+    parseCategory(query) {
+      if (!query) {
+        return
+      }
+
+      return this.getCategoryID(query)
+    }
+  },
 }
 </script>
 
@@ -132,31 +66,11 @@ export default {
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 250px);
   grid-gap: 10px;
+  margin-bottom: 30px;
 }
 
-@media (max-width: 1124px) {
-  .container {
-    max-width: 970px;
-  }
-
-  .grid {
-    grid-template-columns: repeat(auto-fit, 230px);
-  }
+.catalog {
+  padding-top: 40px;
 }
 
-@media (max-width: 992px) {
-  .container {
-    max-width: 750px;
-  }
-
-  .grid {
-    grid-template-columns: repeat(auto-fit, 180px);
-  }
-}
-
-@media (max-width: 767px) {
-  .container {
-    max-width: none;
-  }
-}
 </style>

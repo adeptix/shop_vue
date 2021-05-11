@@ -1,15 +1,111 @@
 import axios from "axios"
-import { API_URL, PRODUCTS_ON_PAGE as limit } from "../consts"
+import { API_URL } from "../consts"
 
 export default {
   namespaced: true,
   state: {
-    products: []
+    products: [],
+    // products : [
+    //   {
+    //     id: 0,
+    //     name: "Футболка мужская",
+    //     brand: "lamborghini",
+    //     price: 100000,
+    //     category_id: 0,
+    //     image_url: "jeans1.png",
+    //     gender: "мужской",
+    //     color: "красный",
+    //     material: "хлопок",
+    //     model: "футболка",
+    //     season: "лето",
+    //     code: "1110151050",
+    //     country: "Индонезия"
+    //   }, {
+    //     id: 1,
+    //     name: "Футболка мужская",
+    //     brand: "lamborghini",
+    //     price: 100000,
+    //     category_id: 0,
+    //     image_url: "jeans1.png",
+    //     gender: "мужской",
+    //     color: "красный",
+    //     material: "хлопок",
+    //     model: "футболка",
+    //     season: "лето",
+    //     code: "1110151050",
+    //     country: "Индонезия"
+    //   }, {
+    //     id: 2,
+    //     name: "Футболка мужская",
+    //     brand: "lamborghini",
+    //     price: 100000,
+    //     category_id: 0,
+    //     image_url: "jeans1.png",
+    //     gender: "мужской",
+    //     color: "красный",
+    //     material: "хлопок",
+    //     model: "футболка",
+    //     season: "лето",
+    //     code: "1110151050",
+    //     country: "Индонезия"
+    //   },
+    //   {
+    //     id: 3,
+    //     name: "Футболка мужская",
+    //     brand: "lamborghini",
+    //     price: 100000,
+    //     category_id: 0,
+    //     image_url: "jeans1.png",
+    //     gender: "мужской",
+    //     color: "красный",
+    //     material: "хлопок",
+    //     model: "футболка",
+    //     season: "лето",
+    //     code: "1110151050",
+    //     country: "Индонезия"
+    //   }, {
+    //     id: 4,
+    //     name: "Футболка мужская",
+    //     brand: "lamborghini",
+    //     price: 100000,
+    //     category_id: 0,
+    //     image_url: "jeans1.png",
+    //     gender: "мужской",
+    //     color: "красный",
+    //     material: "хлопок",
+    //     model: "футболка",
+    //     season: "лето",
+    //     code: "1110151050",
+    //     country: "Индонезия"
+    //   }, {
+    //     id: 5,
+    //     name: "Футболка мужская",
+    //     brand: "lamborghini",
+    //     price: 100000,
+    //     category_id: 0,
+    //     image_url: "jeans1.png",
+    //     gender: "мужской",
+    //     color: "красный",
+    //     material: "хлопок",
+    //     model: "футболка",
+    //     season: "лето",
+    //     code: "1110151050",
+    //     country: "Индонезия"
+    //   }
+    // ]
   },
 
   getters: {
-    getProducts: (state) => {
-      return state.products
+    getProductsByCategoryID: (state) => (categoryID) => {
+      if (categoryID === undefined) {
+        return state.products
+      }
+
+      return state.products.filter(p => p.category_id === categoryID)
+    },
+
+    getProductByID: (state) => (id) => {
+      return state.products.find(p => p.id === parseInt(id))
     }
   },
 
@@ -19,58 +115,12 @@ export default {
     }
   },
   actions: {
-    getProducts({commit}, page) {
+    loadProducts({commit}) {
       return new Promise((resolve, reject) => {
         axios
-          .get(API_URL + `products?_page=${page}&_limit=${limit}}`)
+          .get(API_URL + "products")
           .then(response => {
-            // commit("SET_CURRENT_PAGE", page)
-            // commit("SET_LAST_PAGE", Math.ceil(response.headers["x-total-count"] / limit))
             commit("SET_PRODUCTS", response.data)
-            resolve(response)
-          })
-          .catch(error => {
-            reject(error)
-          })
-      })
-    },
-
-    createComment({commit, state}, postID) {
-      state.currentComment.post_id = postID
-
-      return new Promise((resolve, reject) => {
-        axios
-          .post(API_URL + "comments", state.currentComment)
-          .then(response => {
-            commit("CREATE_COMMENT", response.data)
-            resolve(response)
-          })
-          .catch(error => {
-            reject(error)
-          })
-      })
-    },
-
-    updateComment({commit, state}) {
-      return new Promise((resolve, reject) => {
-        axios
-          .put(API_URL + `comments/${state.currentComment.id}`, state.currentComment)
-          .then(response => {
-            commit("UPDATE_COMMENT")
-            resolve(response)
-          })
-          .catch(error => {
-            reject(error)
-          })
-      })
-    },
-
-    deleteComment({commit}, id) {
-      return new Promise((resolve, reject) => {
-        axios
-          .delete(API_URL + `comments/${id}`)
-          .then(response => {
-            commit("DELETE_COMMENT", id)
             resolve(response)
           })
           .catch(error => {

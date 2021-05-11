@@ -5,7 +5,7 @@
       "name": "Футболка мужская",
       "brand": "lamborghini",
       "price": 100000,
-      "category_id": 0,
+      "category_id": 1,
       "image_url": "jeans1.png",
       "gender": "мужской",
       "color": "красный",
@@ -20,7 +20,7 @@
       "name": "Футболка мужская",
       "brand": "lamborghini",
       "price": 100000,
-      "category_id": 0,
+      "category_id": 1,
       "image_url": "",
       "gender": "мужской",
       "color": "красный",
@@ -35,7 +35,7 @@
       "name": "Футболка мужская",
       "brand": "lamborghini",
       "price": 100000,
-      "category_id": 0,
+      "category_id": 1,
       "image_url": "",
       "gender": "мужской",
       "color": "красный",
@@ -161,11 +161,18 @@
   "categories": [
     {
       "id": 0,
-      "name": "Джинсы"
+      "name": "jeans",
+      "label": "Джинсы"
     },
     {
       "id": 1,
-      "name": "Футболки"
+      "name": "tshirt",
+      "label": "Футболки"
+    },
+    {
+      "id": 2,
+      "name": "shirt",
+      "label": "Рубашки"
     }
   ],
   "basket": []
