@@ -22,9 +22,7 @@ export default {
   components: {DiscountCard, ProductImage},
   props: ["product"],
   methods: {
-    toProductPage() {
-      this.$router.push()
-    }
+
   },
 
   computed: {
@@ -38,21 +36,13 @@ export default {
     haveDiscount: function () {
       return this.discount !== undefined
     },
-    actualPrice: function () {
-      const price = this.product.price
-
-      if (!this.haveDiscount) {
-        return price
-      }
-
-      return this.discount.percent / 100 * price
-    }
   }
 }
 </script>
 
 <style scoped>
 .p_card {
+  cursor: pointer;
   padding: 5px;
   background: white;
   display: flex;

@@ -21,7 +21,7 @@ export default {
         return price
       }
 
-      return this.discount.percent / 100 * price
+      return price - (this.discount.percent / 100) * price
     }
   }
 }
@@ -43,7 +43,6 @@ export default {
   color: #868686;
   font-weight: bold;
   font-size: 16px;
-  /*align-self: center;*/
 }
 
 .discount_price {
